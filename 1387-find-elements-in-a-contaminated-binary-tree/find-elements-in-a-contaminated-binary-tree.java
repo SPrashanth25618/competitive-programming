@@ -14,7 +14,7 @@
  * }
  */
 class FindElements {
-    HashSet<Integer> st;
+    HashSet<Integer> st = new HashSet<>();
     public void fillValues(TreeNode root,int num){
         if(root == null )
             return ;
@@ -24,7 +24,6 @@ class FindElements {
         fillValues(root.right,2*num+2);
     }
     public FindElements(TreeNode root) {
-        st = new HashSet<>();
         fillValues(root,0);
     }
     
