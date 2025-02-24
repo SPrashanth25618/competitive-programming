@@ -11,30 +11,29 @@
  */
 class Solution {
 public:
-    TreeNode* constructBinaryTree(string &traversal,int& i,int& n,int dep){
+    TreeNode* construct(string &s,int &i,int &n,int depth)
+    {
         if(i >= n)
             return nullptr;
         int j = i;
-        while(j<n && traversal[j] == '-'){
+        while(j<n && s[j] == '-')
             j++;
-        }
         int dashes = j-i;
-        if(dashes != dep)
+        if(dashes != depth)
             return nullptr;
-        i += dashes;
-        int num = 0;
-        while(i<n && isdigit(traversal[i])){
-            num = num*10 + (traversal[i] - '0');
+        i = j;
+        int val = 0;
+        while(i<n && isdigit(s[i])){
+            val = val*10 + (s[i] - '0');
             i++;
         }
-        TreeNode* node = new TreeNode(num);
-        node->left = constructBinaryTree(traversal,i,n,dep+1);
-        node->right = constructBinaryTree(traversal,i,n,dep+1);
+        TreeNode* node = new TreeNode(val);
+        node->left = construct(s,i,n,depth+1);
+        node->right = construct(s,i,n,depth+1);
         return node;
     }
-    TreeNode* recoverFromPreorder(string traversal) {
-        int i=0;
-        int n = traversal.length();
-        return constructBinaryTree(traversal,i,n,0);
+    TreeNode* recoverFromPreorder(string s) {
+       int n = s.size(),i = 0;
+       return construct(s,i,n,0) ;
     }
 };
