@@ -2,14 +2,22 @@ class Solution {
 public:
     int m = 1e9+7;
     int numOfSubarrays(vector<int>& arr) {
-        int n = arr.size();
-        long long sum = 0,odd = 0;
-        for(int &i:arr)
+        int ans = 0,n = arr.size();
+        int sum = 0,odd =0,even = 1;
+        for(int i=0;i<n;i++)
         {
-            sum += i;
-            odd += sum%2;
+            sum += arr[i];
+            if(sum%2!=0)
+            {
+                ans = (ans + even)%m;
+                odd++;
+            }
+            else
+            {
+                even++;
+                ans = (ans + odd)%m;
+            }
         }
-        odd += (n-odd)*odd;
-        return odd%m;
+        return ans%m;
     }
 };
