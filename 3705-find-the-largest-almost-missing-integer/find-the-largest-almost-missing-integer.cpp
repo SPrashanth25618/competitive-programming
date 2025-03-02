@@ -5,7 +5,7 @@ public:
         {
             return *max_element(nums.begin(),nums.end());
         }
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(int i=0;i<nums.size()-k+1;i++)
         {
             cout<<i<<endl;
