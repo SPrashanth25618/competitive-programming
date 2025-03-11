@@ -4,16 +4,13 @@ public:
         int n = s.length();
         int i=0,j=0;
         int ans = 0;
-        unordered_map<char,int> mp;
+        vector<int> mp(3,0);
         while(j<n){
             char ch = s[j];
-            mp[ch]++;
-            while(i<n && mp.size() == 3){
+            mp[ch-'a']++;
+            while(mp[0] > 0 && mp[1] > 0 && mp[2] > 0){
                 ans += n-j;
-                mp[s[i]]--;
-                if(mp[s[i]] == 0){
-                    mp.erase(s[i]);
-                }
+                mp[s[i] - 'a']--;
                 i++;
             }
             j++;
