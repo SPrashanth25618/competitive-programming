@@ -11,9 +11,10 @@ public:
         return (ans >= k);
     }
     int maximumCandies(vector<int>& candies, long long k) {
-        int maxi = *max_element(candies.begin(), candies.end());
-        if (k == 1)
-            return maxi;
+        long long total_candies = accumulate(candies.begin(), candies.end(), 0LL);
+        if (total_candies < k)
+            return 0;
+        int maxi = *max_element(candies.begin(),candies.end());
         int lo = 1, hi = maxi;
         int ans = 0;
         while (lo <= hi) {
