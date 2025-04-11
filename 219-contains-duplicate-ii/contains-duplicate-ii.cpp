@@ -10,9 +10,6 @@ public:
             }
             mp[nums[i]] = i;
         }
-        for(auto it:mp){
-            cout<<it.first<<" "<<it.second<<endl;
-        }
         return false;
     }
 };
