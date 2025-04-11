@@ -10,7 +10,7 @@ public:
             x = target - nums[i],y = nums[i];
             if( mp.find(x) != mp.end() )
                 return {mp[x],i};
-            mp[y] = i;
+            mp.insert({y,i});
         }
         return {};
     }
