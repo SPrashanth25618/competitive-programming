@@ -8,7 +8,7 @@ public:
         int ans = 0;
         for (auto& [x, count] : mp) {
             int groupSize = x + 1;
-            int groups = (count + groupSize - 1) / groupSize;
+            int groups = ceil((double)count/(double)groupSize);
             ans += groups * groupSize;
         }
         return ans;
