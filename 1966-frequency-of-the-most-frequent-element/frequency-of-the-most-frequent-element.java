@@ -10,10 +10,8 @@ class Solution {
                 sum -= nums[i];
                 i++;
             }
-            int len = j-i+1;
-            if((long)len*nums[j]-sum <= k){
-                maxi = Math.max(maxi,len);
-            }
+            int len = j-i+1;            
+            maxi = Math.max(maxi,len);            
         }
         return maxi;
     }
