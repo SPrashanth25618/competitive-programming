@@ -5,16 +5,11 @@ class Solution {
         List<List<Integer>> ans = new ArrayList<>();
         for(int i=0;i<n;i++){
             int st = ar[i][0],ed = ar[i][1];
-            if(!ans.isEmpty() && ans.get(ans.size()-1).get(1) >= ed)
-                continue;
-            for(int j=i+1;j<n;j++){
-                if(ar[j][0] <= ed){
-                    ed = Math.max(ed,ar[j][1]);
-                }else{
-                    break;
-                }
+            if(ans.isEmpty() || st > ans.get(ans.size()-1).get(1)){
+                ans.add(Arrays.asList(st,ed));
+            }else{
+                ans.get(ans.size()-1).set(1,Math.max(ans.get(ans.size()-1).get(1),ed));
             }
-            ans.add(Arrays.asList(st,ed));
         }
         System.out.println(ans);
         int[][] res = new int[ans.size()][2];
