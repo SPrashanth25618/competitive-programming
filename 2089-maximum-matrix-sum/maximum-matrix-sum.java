@@ -13,9 +13,6 @@ class Solution {
                 mini = Math.min(mini,Math.abs(matrix[i][j]));
             }
         }
-        if(cnt%2 == 0)
-            return sum;
-        // System.out.println(mini+" "+sum);
-        return sum - 2*mini;
+        return (cnt%2 == 0)?sum : sum - 2*mini;
     }
 }
