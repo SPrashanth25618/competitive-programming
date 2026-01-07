@@ -14,9 +14,9 @@
  * }
  */
 class Solution {
-    static int m = (int)1e9+7;
-    static long totsum;
-    static long ans;
+    int m = (int)1e9+7;
+    long totsum;
+    long ans;
     public int maxProduct(TreeNode root) {        
         totsum = gettotal(root);
         ans = (long)0;
