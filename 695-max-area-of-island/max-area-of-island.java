@@ -10,9 +10,8 @@ class Solution {
         int ans = 0;
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(vis[i][j] != true && grid[i][j] == 1){
-                    int val = dfs(i,j);
-                    ans = Math.max(ans,val);
+                if(vis[i][j] != true && grid[i][j] == 1){                    
+                    ans = Math.max(ans,dfs(i,j));
                 }
             }
         }
