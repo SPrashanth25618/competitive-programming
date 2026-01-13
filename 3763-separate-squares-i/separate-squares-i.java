@@ -32,6 +32,6 @@ class Solution {
                 bottomarea += (double)l*(mid-by);
             }
         }
-        return (bottomarea >= (totarea - bottomarea));
+        return (bottomarea >= totarea/2.0);
     }
 }
